@@ -1,10 +1,12 @@
 package com.sample.smallbank.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity(name = "customers")
-@Data
+@Getter
+@Setter
 public class Customer {
 
     @Id
