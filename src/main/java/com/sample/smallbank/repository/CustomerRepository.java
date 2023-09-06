@@ -1,9 +1,11 @@
 package com.sample.smallbank.repository;
 
-import com.sample.smallbank.entity.Customer;
+import com.sample.smallbank.entity.CustomerEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface CustomerRepository extends JpaRepository<Customer, Long> {
+@Repository
+public interface CustomerRepository extends JpaRepository<CustomerEntity, Long> {
 
-    Customer findCustomerByEmail(String email);
+    CustomerEntity findCustomerByEmail(String email);
 }
