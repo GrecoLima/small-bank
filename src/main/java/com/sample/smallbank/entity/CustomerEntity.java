@@ -16,13 +16,13 @@ public class CustomerEntity {
     @Column(name = "customer_id")
     private Long customerId;
 
-    @Column(length = 50,nullable = false,unique = true)
+    @Column(length = 50, nullable = false, unique = true)
     private String email;
 
     @Column(nullable = false)
     private String pwd;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinTable(
             name = "customer_roles",
             joinColumns = @JoinColumn(name = "customer_id"),
