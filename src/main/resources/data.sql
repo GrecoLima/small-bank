@@ -5,11 +5,11 @@ VALUES ('ADMIN'),
 
 -- Insert sample data into the "customers" table
 INSERT INTO customers (email, pwd)
-VALUES ('john.doe@example.com', 'password123'),
-       ('jane.smith@example.com', 'securepass'),
-       ('alice.johnson@example.com', 'passw0rd'),
-       ('bob.williams@example.com', 'mysecret'),
-       ('emily.brown@example.com', 'topsecret');
+VALUES ('john.doe@example.com', '$2a$10$/oKnziz60HFue7YXsUWt2.e7ufs3xxTP0o5mNB03eFZCmuoWX3X5O'),
+       ('jane.smith@example.com', '$2a$10$/oKnziz60HFue7YXsUWt2.e7ufs3xxTP0o5mNB03eFZCmuoWX3X5O'),
+       ('alice.johnson@example.com', '$2a$10$/oKnziz60HFue7YXsUWt2.e7ufs3xxTP0o5mNB03eFZCmuoWX3X5O'),
+       ('bob.williams@example.com', '$2a$10$/oKnziz60HFue7YXsUWt2.e7ufs3xxTP0o5mNB03eFZCmuoWX3X5O'),
+       ('emily.brown@example.com', '$2a$10$/oKnziz60HFue7YXsUWt2.e7ufs3xxTP0o5mNB03eFZCmuoWX3X5O');
 
 -- Insert sample data into the "customer_roles" table
 -- Associate customers with roles
