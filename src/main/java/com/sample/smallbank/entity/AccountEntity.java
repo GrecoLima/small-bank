@@ -33,4 +33,7 @@ public class AccountEntity {
 
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     private List<AccountTransactionEntity> transactions = new ArrayList<>();
+
+    @OneToMany(mappedBy = "account")
+    private List<CardEntity> cards;
 }

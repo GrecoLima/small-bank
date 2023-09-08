@@ -46,4 +46,7 @@ public class CustomerEntity {
     @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private LoanEntity loan;
 
+    @OneToMany(mappedBy = "customer")
+    private List<CardEntity> cards;
+
 }

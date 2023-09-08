@@ -47,3 +47,12 @@ INSERT INTO loans (customer_id, start_dt, loan_type, total_loan, amount_paid, ou
 VALUES
     (1, '2023-09-10', 'Personal Loan', 5000, 1000, 4000, '2023-09-10'), -- John Doe's Personal Loan
     (2, '2023-09-11', 'Car Loan', 8000, 2000, 6000, '2023-09-11'); -- Jane Smith's Car LoanK
+
+-- Insert sample data into the "cards" table
+-- Each card belongs to a specific customer and account
+INSERT INTO cards (card_number, card_type, total_limit, amount_used, available_amount, create_dt, customer_id, account_number)
+VALUES
+    ('1234567890123456', 'Credit Card', 5000, 0, 5000, '2023-09-12', 1, 1),  -- John Doe's Credit Card for Account 1
+    ('9876543210987654', 'Debit Card', 2000, 0, 2000, '2023-09-12', 1, 1),   -- John Doe's Debit Card for Account 1
+    ('1111222233334444', 'Credit Card', 6000, 0, 6000, '2023-09-12', 2, 2),  -- Jane Smith's Credit Card for Account 2
+    ('5555666677778888', 'Debit Card', 2500, 0, 2500, '2023-09-12', 2, 2);   -- Jane Smith's Debit Card for Account 2
