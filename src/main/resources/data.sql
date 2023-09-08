@@ -56,3 +56,12 @@ VALUES
     ('9876543210987654', 'Debit Card', 2000, 0, 2000, '2023-09-12', 1, 1),   -- John Doe's Debit Card for Account 1
     ('1111222233334444', 'Credit Card', 6000, 0, 6000, '2023-09-12', 2, 2),  -- Jane Smith's Credit Card for Account 2
     ('5555666677778888', 'Debit Card', 2500, 0, 2500, '2023-09-12', 2, 2);   -- Jane Smith's Debit Card for Account 2
+
+-- Insert sample data into the "notice_details" table
+INSERT INTO notice_details (notice_summary, notice_details, notic_beg_dt, notic_end_dt, create_dt, update_dt)
+VALUES
+    ('Important Notice 1', 'This is the first important notice.', '2023-09-10 08:00:00', '2023-09-20 08:00:00', '2023-09-10 08:00:00', '2023-09-10 08:00:00'),
+    ('Reminder', 'A friendly reminder for our customers.', '2023-09-12 10:00:00', '2023-09-15 10:00:00', '2023-09-12 10:00:00', '2023-09-12 10:00:00'),
+    ('Upcoming Maintenance', 'Scheduled maintenance on the following dates.', '2023-09-15 14:00:00', '2023-09-17 14:00:00', '2023-09-15 14:00:00', '2023-09-15 14:00:00'),
+    ('Holiday Closure', 'Our offices will be closed during the holidays.', '2023-12-24 18:00:00', '2024-01-02 08:00:00', '2023-12-24 18:00:00', '2023-12-24 18:00:00'),
+    ('Service Disruption', 'Anticipated service disruption due to system upgrades.', '2023-09-18 12:00:00', '2023-09-19 12:00:00', '2023-09-18 12:00:00', '2023-09-18 12:00:00');

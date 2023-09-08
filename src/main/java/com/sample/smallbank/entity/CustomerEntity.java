@@ -5,10 +5,9 @@ import lombok.Getter;
 import lombok.Setter;
 import java.util.Date;
 import java.util.List;
-
-@Entity(name = "customers")
 @Getter
 @Setter
+@Entity(name = "customers")
 public class CustomerEntity {
 
     @Id
