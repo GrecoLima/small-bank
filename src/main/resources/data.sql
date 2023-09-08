@@ -40,3 +40,10 @@ VALUES
     ('3', 2, '2023-09-08 09:15:00', '2023-09-08 09:15:00', 'Deposit', 'Credit', 1500, 1500),
     ('4', 3, '2023-09-08 12:45:00', '2023-09-08 12:45:00', 'Withdrawal', 'Debit', -800, 800),
     ('5', 4, '2023-09-09 11:30:00', '2023-09-09 11:30:00', 'Deposit', 'Credit', 2000, 2000);
+
+-- Insert sample data into the "loans" table
+-- Each loan belongs to a specific customer
+INSERT INTO loans (customer_id, start_dt, loan_type, total_loan, amount_paid, outstanding_amount, create_dt)
+VALUES
+    (1, '2023-09-10', 'Personal Loan', 5000, 1000, 4000, '2023-09-10'), -- John Doe's Personal Loan
+    (2, '2023-09-11', 'Car Loan', 8000, 2000, 6000, '2023-09-11'); -- Jane Smith's Car LoanK

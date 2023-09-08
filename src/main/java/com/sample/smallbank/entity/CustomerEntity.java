@@ -32,9 +32,6 @@ public class CustomerEntity {
     @Column(nullable = false)
     private String pwd;
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    private List<AccountEntity> accounts;
-
     @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinTable(
             name = "customer_roles",
@@ -42,5 +39,11 @@ public class CustomerEntity {
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     private List<RoleEntity> roles;
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    private List<AccountEntity> accounts;
+
+    @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private LoanEntity loan;
 
 }
