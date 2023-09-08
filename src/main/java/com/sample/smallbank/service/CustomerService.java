@@ -5,6 +5,7 @@ import com.sample.smallbank.dto.UserRegistrationDto;
 import com.sample.smallbank.entity.CustomerEntity;
 import com.sample.smallbank.entity.RoleEntity;
 import com.sample.smallbank.repository.CustomerRepository;
+import com.sample.smallbank.util.PhoneNumberFormatter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +13,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -56,9 +58,13 @@ public class CustomerService {
 
         // Create a new customer entity (user)
         CustomerEntity customerEntity = new CustomerEntity();
+        customerEntity.setName(registrationDto.getName());
+        String formattedPhoneNumber = PhoneNumberFormatter.formatPhoneNumber(registrationDto.getMobileNumber());
+        customerEntity.setMobileNumber(formattedPhoneNumber);
         customerEntity.setEmail(registrationDto.getEmail());
         customerEntity.setPwd(passwordEncoder.encode(registrationDto.getPassword()));
         customerEntity.setRoles(roleEntities);
+        customerEntity.setCreatedDate(new Date());
 
         // Save the user in the database
         customerRepository.save(customerEntity);

@@ -3,20 +3,20 @@ INSERT INTO roles (role_name)
 VALUES ('ADMIN'),
        ('CUSTOMER');
 
--- Insert sample data into the "customers" table
-INSERT INTO customers (email, pwd)
-VALUES ('john.doe@example.com', '$2a$10$/oKnziz60HFue7YXsUWt2.e7ufs3xxTP0o5mNB03eFZCmuoWX3X5O'),
-       ('jane.smith@example.com', '$2a$10$/oKnziz60HFue7YXsUWt2.e7ufs3xxTP0o5mNB03eFZCmuoWX3X5O'),
-       ('alice.johnson@example.com', '$2a$10$/oKnziz60HFue7YXsUWt2.e7ufs3xxTP0o5mNB03eFZCmuoWX3X5O'),
-       ('bob.williams@example.com', '$2a$10$/oKnziz60HFue7YXsUWt2.e7ufs3xxTP0o5mNB03eFZCmuoWX3X5O'),
-       ('emily.brown@example.com', '$2a$10$/oKnziz60HFue7YXsUWt2.e7ufs3xxTP0o5mNB03eFZCmuoWX3X5O');
+-- Insert 5 customers into the "customers" table
+INSERT INTO customers (email, name, mobile_number, created_date, pwd)
+VALUES
+    ('john.doe@example.com', 'John Doe', '123-456-7890', '2023-09-06', '$2a$10$/oKnziz60HFue7YXsUWt2.e7ufs3xxTP0o5mNB03eFZCmuoWX3X5O'),
+    ('jane.smith@example.com', 'Jane Smith', '987-654-3210', '2023-09-06', '$2a$10$/oKnziz60HFue7YXsUWt2.e7ufs3xxTP0o5mNB03eFZCmuoWX3X5O'),
+    ('michael.johnson@example.com', 'Michael Johnson', '555-555-5555', '2023-09-06', '$2a$10$/oKnziz60HFue7YXsUWt2.e7ufs3xxTP0o5mNB03eFZCmuoWX3X5O'),
+    ('susan.williams@example.com', 'Susan Williams', '333-333-3333', '2023-09-06', '$2a$10$/oKnziz60HFue7YXsUWt2.e7ufs3xxTP0o5mNB03eFZCmuoWX3X5O'),
+    ('david.miller@example.com', 'David Miller', '777-777-7777', '2023-09-06', '$2a$10$/oKnziz60HFue7YXsUWt2.e7ufs3xxTP0o5mNB03eFZCmuoWX3X5O');
 
--- Insert sample data into the "customer_roles" table
--- Associate customers with roles
--- For example, associate 'john.doe@example.com' with the 'ADMIN' and 'CUSTOMER' roles
+-- Insert the corresponding roles into the "customer_roles" table
 INSERT INTO customer_roles (customer_id, role_id)
-VALUES (1, 1), -- 'john.doe@example.com' is ADMIN
-       (2, 1), -- 'jane.smith@example.com' is ADMIN
-       (3, 2), -- 'alice.johnson@example.com' is CUSTOMER
-       (4, 2), -- 'bob.williams@example.com' is CUSTOMER
-       (5, 1); -- 'emily.brown@example.com' is ADMIN;
+VALUES
+    (1, 1), -- Customer John Doe has role 1
+    (2, 1), -- Customer Jane Smith has role 1
+    (3, 1), -- Customer Michael Johnson has role 1
+    (4, 1), -- Customer Susan Williams has role 1
+    (5, 1); -- Customer David Miller has role 1
