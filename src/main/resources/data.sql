@@ -65,3 +65,13 @@ VALUES
     ('Upcoming Maintenance', 'Scheduled maintenance on the following dates.', '2023-09-15 14:00:00', '2023-09-17 14:00:00', '2023-09-15 14:00:00', '2023-09-15 14:00:00'),
     ('Holiday Closure', 'Our offices will be closed during the holidays.', '2023-12-24 18:00:00', '2024-01-02 08:00:00', '2023-12-24 18:00:00', '2023-12-24 18:00:00'),
     ('Service Disruption', 'Anticipated service disruption due to system upgrades.', '2023-09-18 12:00:00', '2023-09-19 12:00:00', '2023-09-18 12:00:00', '2023-09-18 12:00:00');
+
+-- Insert sample data into the contact_messages table
+INSERT INTO contact_messages (contact_name, contact_email, subject, message, create_dt)
+VALUES
+    ('John Doe', 'john.doe@example.com', 'Inquiry', 'Hello, I have a question about your services.', '2023-09-10 09:00:00'),
+    ('Jane Smith', 'jane.smith@example.com', 'Feedback', 'I wanted to provide feedback on your website. It is great!', '2023-09-10 10:30:00'),
+    ('Michael Johnson', 'michael.johnson@example.com', 'Support Request', 'I need assistance with my account.', '2023-09-10 12:15:00'),
+    ('Susan Williams', 'susan.williams@example.com', 'Complaint', 'I am unhappy with your product. It did not meet my expectations.', '2023-09-10 14:45:00'),
+    ('David Miller', 'david.miller@example.com', 'Question', 'Can you provide more information about your pricing plans?', '2023-09-10 16:20:00');
+
