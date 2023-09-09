@@ -4,17 +4,17 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @Entity(name = "notice_details")
 public class NoticeEntity {
-
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column(name = "notice_id")
-    private int noticeId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "notice_id", nullable = false)
+    private Long noticeId;
 
     @Column(name = "notice_summary")
     private String noticeSummary;
@@ -23,14 +23,14 @@ public class NoticeEntity {
     private String noticeDetails;
 
     @Column(name = "notic_beg_dt")
-    private Date noticBegDt;
+    private LocalDateTime noticBegDt;
 
     @Column(name = "notic_end_dt")
-    private Date noticEndDt;
+    private LocalDateTime noticEndDt;
 
     @Column(name = "create_dt")
-    private Date createDt;
+    private LocalDateTime createDt;
 
     @Column(name = "update_dt")
-    private Date updateDt;
+    private LocalDateTime updateDt;
 }

@@ -12,8 +12,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -58,13 +58,13 @@ public class CustomerService {
 
         // Create a new customer entity (user)
         CustomerEntity customerEntity = new CustomerEntity();
-        customerEntity.setName(registrationDto.getName());
+        customerEntity.setEmail(registrationDto.getName());
         String formattedPhoneNumber = PhoneNumberFormatter.formatPhoneNumber(registrationDto.getMobileNumber());
-        customerEntity.setMobileNumber(formattedPhoneNumber);
+        customerEntity.setMobilePhone(formattedPhoneNumber);
         customerEntity.setEmail(registrationDto.getEmail());
-        customerEntity.setPwd(passwordEncoder.encode(registrationDto.getPassword()));
+        customerEntity.setPassword(passwordEncoder.encode(registrationDto.getPassword()));
         customerEntity.setRoles(roleEntities);
-        customerEntity.setCreatedDate(new Date());
+        customerEntity.setCreatedDate(LocalDate.now());
 
         // Save the user in the database
         customerRepository.save(customerEntity);

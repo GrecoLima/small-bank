@@ -4,29 +4,25 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
-
 @Getter
 @Setter
 @Entity(name = "contact_messages")
-public class ContactEntity {
-
+public class ContactEntity extends AbstractModificationAttributesEntity {
     @Id
-    @Column(name = "contact_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long contactId;
+    @Column(name = "contact_id", nullable = false)
+    private Long contactId;
 
-    @Column(name = "contact_name")
-    private String contactName;
+    @Column(name = "name", nullable = false)
+    private String name;
 
-    @Column(name = "contact_email")
-    private String contactEmail;
+    @Column(name = "email", nullable = false)
+    private String email;
 
+    @Column(name = "subject", nullable = false)
     private String subject;
 
+    @Column(name = "message", nullable = false)
     private String message;
-
-    @Column(name = "create_dt")
-    private Date createDt;
 
 }

@@ -40,7 +40,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
         if (customer == null) {
             throw new UsernameNotFoundException("User not found: " + username);
-        } else if (passwordEncoder.matches(password, customer.getPwd())) {
+        } else if (passwordEncoder.matches(password, customer.getPassword())) {
             List<GrantedAuthority> authorityList = new ArrayList<>();
             List<RoleEntity> roles = customer.getRoles();
             for (RoleEntity role : roles) {

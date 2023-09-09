@@ -4,19 +4,28 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
-@Entity(name="account_transactions")
+@Entity(name = "account_transactions")
 public class AccountTransactionEntity {
-
     @Id
-    @Column(name = "transaction_id")
-    private String transactionId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "account_transaction_id", nullable = false)
+    private Long accountTransactionId;
+
+    @JoinColumn(name = "account_id", nullable = false)
+    @OneToOne
+    private AccountEntity account;
+
+    @JoinColumn(name = "customer_id", nullable = false)
+    @OneToOne
+    private CustomerEntity customer;
 
     @Column(name="transaction_dt")
-    private Date transactionDt;
+    private LocalDateTime transactionDt;
 
     @Column(name = "transaction_summary")
     private String transactionSummary;
@@ -31,9 +40,6 @@ public class AccountTransactionEntity {
     private int closingBalance;
 
     @Column(name = "create_dt")
-    private String createDt;
+    private LocalDateTime createDt;
 
-    @ManyToOne
-    @JoinColumn(name = "account_id")
-    private AccountEntity account;
 }

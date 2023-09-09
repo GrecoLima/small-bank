@@ -1,77 +1,70 @@
--- Insert sample data into the "roles" table
-INSERT INTO roles (role_name)
-VALUES ('ADMIN'),
-       ('CUSTOMER');
-
--- Insert sample data into the "customers" table
-INSERT INTO customers (email, name, mobile_number, created_date, pwd)
+-- Insert data into the 'contact_messages' table
+-- This message is related to customer with ID 1
+INSERT INTO contact_messages (active, created_date, updated_date, contact_id, created_by, email, message, name, subject, updated_by)
 VALUES
-    ('john.doe@example.com', 'John Doe', '123-456-7890', '2023-09-06', '$2a$10$/oKnziz60HFue7YXsUWt2.e7ufs3xxTP0o5mNB03eFZCmuoWX3X5O'),
-    ('jane.smith@example.com', 'Jane Smith', '987-654-3210', '2023-09-06', '$2a$10$/oKnziz60HFue7YXsUWt2.e7ufs3xxTP0o5mNB03eFZCmuoWX3X5O'),
-    ('michael.johnson@example.com', 'Michael Johnson', '555-555-5555', '2023-09-06', '$2a$10$/oKnziz60HFue7YXsUWt2.e7ufs3xxTP0o5mNB03eFZCmuoWX3X5O'),
-    ('susan.williams@example.com', 'Susan Williams', '333-333-3333', '2023-09-06', '$2a$10$/oKnziz60HFue7YXsUWt2.e7ufs3xxTP0o5mNB03eFZCmuoWX3X5O'),
-    ('david.miller@example.com', 'David Miller', '777-777-7777', '2023-09-06', '$2a$10$/oKnziz60HFue7YXsUWt2.e7ufs3xxTP0o5mNB03eFZCmuoWX3X5O');
+    (1, '2023-09-09', '2023-09-09', 1, 'Admin', 'john@example.com', 'Hello, how can I help you?', 'John Doe', 'Support', 'Admin'),
+    (1, '2023-09-09', '2023-09-09', 2, 'Admin', 'jane@example.com', 'Please assist with my issue.', 'Jane Smith', 'Help', 'Admin');
 
--- Insert sample data into the "accounts" table
--- Each account belongs to a specific customer
-INSERT INTO accounts (account_number, customer_id, account_type, branch_address, create_date)
+-- Insert data into the 'customers' table
+-- Customer with ID 1
+INSERT INTO customers (active, created_date, updated_date, customer_id, created_by, email, mobile_phone, password, updated_by)
 VALUES
-    (1, 1, 'Savings', '123 Main St', '2023-09-06'),
-    (2, 2, 'Checking', '456 Elm St', '2023-09-06'),
-    (3, 3, 'Savings', '789 Oak St', '2023-09-06'),
-    (4, 4, 'Checking', '101 Pine St', '2023-09-06'),
-    (5, 5, 'Savings', '222 Maple St', '2023-09-06');
+    (1, '2023-09-09', '2023-09-09', 1, 'Admin', 'john@example.com', '1234567890', 'hashed_password', 'Admin'),
+    -- Customer with ID 2
+    (1, '2023-09-09', '2023-09-09', 2, 'Admin', 'jane@example.com', '9876543210', 'hashed_password', 'Admin');
 
--- Insert sample data into the "customer_roles" table
+-- Insert data into the 'notice_details' table
+-- Notice 1
+INSERT INTO notice_details (create_dt, notic_beg_dt, notic_end_dt, notice_id, update_dt, notice_details, notice_summary)
+VALUES
+    ('2023-09-09 08:00:00.000000', '2023-09-09 08:30:00.000000', '2023-09-09 09:00:00.000000', 1, '2023-09-09 10:00:00.000000', 'Important notice content 1', 'Notice 1 Summary'),
+    -- Notice 2
+    ('2023-09-09 09:00:00.000000', '2023-09-09 09:30:00.000000', '2023-09-09 10:00:00.000000', 2, '2023-09-09 11:00:00.000000', 'Important notice content 2', 'Notice 2 Summary');
+
+-- Insert data into the 'roles' table
+-- Admin role
+INSERT INTO roles (active, created_date, updated_date, role_id, created_by, role_name, updated_by)
+VALUES
+    (1, '2023-09-09', '2023-09-09', 1, 'Admin', 'ADMIN', 'Admin'),
+    -- User role
+    (1, '2023-09-09', '2023-09-09', 2, 'Admin', 'USER', 'Admin');
+
+-- Insert data into the 'accounts' table
+-- Account 1 belongs to Customer with ID 1
+INSERT INTO accounts (active, created_date, updated_date, account_id, customer_id, account_type, branch_address, created_by, updated_by)
+VALUES
+    (1, '2023-09-09', '2023-09-09', 1, 1, 'Savings', '123 Main St', 'Admin', 'Admin'),
+    -- Account 2 belongs to Customer with ID 2
+    (1, '2023-09-09', '2023-09-09', 2, 2, 'Checking', '456 Elm St', 'Admin', 'Admin');
+
+-- Insert data into the 'cards' table
+-- Card 1 belongs to Customer with ID 1 and Account with ID 1
+INSERT INTO cards (active, amount_used, available_amount, created_date, total_limit, updated_date, card_id, customer_id, card_number, card_type, created_by, updated_by)
+VALUES
+    (1, 500.00, 2500.00, '2023-09-09', 3000.00, '2023-09-09', 1, 1, '1234567890123456', 'Credit', 'Admin', 'Admin'),
+    -- Card 2 belongs to Customer with ID 2 and Account with ID 2
+    (1, 100.00, 900.00, '2023-09-09', 1000.00, '2023-09-09', 2, 2, '9876543210987654', 'Debit', 'Admin', 'Admin');
+
+-- Insert data into the 'customer_roles' table
+-- Customer with ID 1 has Admin role (ID 1)
 INSERT INTO customer_roles (customer_id, role_id)
 VALUES
-    (1, 1), -- Customer John Doe has role 1
-    (2, 1), -- Customer Jane Smith has role 1
-    (3, 1), -- Customer Michael Johnson has role 1
-    (4, 1), -- Customer Susan Williams has role 1
-    (5, 1); -- Customer David Miller has role 1
+    (1, 1),
+    -- Customer with ID 2 has User role (ID 2)
+    (2, 2);
 
--- Insert sample data into the "account_transactions" table
--- Each transaction belongs to a specific account and customer
-INSERT INTO account_transactions (transaction_id, account_id, transaction_dt, create_dt, transaction_summary, transaction_type, transaction_amt, closing_balance)
+-- Insert data into the 'loans' table
+-- Loan 1 belongs to Customer with ID 1
+INSERT INTO loans (active, amount_paid, created_date, loan_amount, outstanding_amount, updated_date, customer_id, loan_id, created_by, loan_type, updated_by)
 VALUES
-    ('1', 1, '2023-09-07 10:00:00', '2023-09-07 10:00:00', 'Deposit', 'Credit', 1000, 1000),
-    ('2', 1, '2023-09-07 14:30:00', '2023-09-07 14:30:00', 'Withdrawal', 'Debit', -500, 500),
-    ('3', 2, '2023-09-08 09:15:00', '2023-09-08 09:15:00', 'Deposit', 'Credit', 1500, 1500),
-    ('4', 3, '2023-09-08 12:45:00', '2023-09-08 12:45:00', 'Withdrawal', 'Debit', -800, 800),
-    ('5', 4, '2023-09-09 11:30:00', '2023-09-09 11:30:00', 'Deposit', 'Credit', 2000, 2000);
+    (1, 1000.00, '2023-09-09', 5000.00, 4000.00, '2023-09-09', 1, 1, 'Admin', 'Personal', 'Admin'),
+    -- Loan 2 belongs to Customer with ID 2
+    (1, 2000.00, '2023-09-09', 10000.00, 8000.00, '2023-09-09', 2, 2, 'Admin', 'Home', 'Admin');
 
--- Insert sample data into the "loans" table
--- Each loan belongs to a specific customer
-INSERT INTO loans (customer_id, start_dt, loan_type, total_loan, amount_paid, outstanding_amount, create_dt)
+-- Insert data into the 'account_transactions' table
+-- Transaction 1 is related to Account with ID 1 and Customer with ID 1
+INSERT INTO account_transactions (closing_balance, transaction_amt, account_id, account_transaction_id, create_dt, customer_id, transaction_dt, transaction_summary, transaction_type)
 VALUES
-    (1, '2023-09-10', 'Personal Loan', 5000, 1000, 4000, '2023-09-10'), -- John Doe's Personal Loan
-    (2, '2023-09-11', 'Car Loan', 8000, 2000, 6000, '2023-09-11'); -- Jane Smith's Car LoanK
-
--- Insert sample data into the "cards" table
--- Each card belongs to a specific customer and account
-INSERT INTO cards (card_number, card_type, total_limit, amount_used, available_amount, create_dt, customer_id, account_number)
-VALUES
-    ('1234567890123456', 'Credit Card', 5000, 0, 5000, '2023-09-12', 1, 1),  -- John Doe's Credit Card for Account 1
-    ('9876543210987654', 'Debit Card', 2000, 0, 2000, '2023-09-12', 1, 1),   -- John Doe's Debit Card for Account 1
-    ('1111222233334444', 'Credit Card', 6000, 0, 6000, '2023-09-12', 2, 2),  -- Jane Smith's Credit Card for Account 2
-    ('5555666677778888', 'Debit Card', 2500, 0, 2500, '2023-09-12', 2, 2);   -- Jane Smith's Debit Card for Account 2
-
--- Insert sample data into the "notice_details" table
-INSERT INTO notice_details (notice_summary, notice_details, notic_beg_dt, notic_end_dt, create_dt, update_dt)
-VALUES
-    ('Important Notice 1', 'This is the first important notice.', '2023-09-10 08:00:00', '2023-09-20 08:00:00', '2023-09-10 08:00:00', '2023-09-10 08:00:00'),
-    ('Reminder', 'A friendly reminder for our customers.', '2023-09-12 10:00:00', '2023-09-15 10:00:00', '2023-09-12 10:00:00', '2023-09-12 10:00:00'),
-    ('Upcoming Maintenance', 'Scheduled maintenance on the following dates.', '2023-09-15 14:00:00', '2023-09-17 14:00:00', '2023-09-15 14:00:00', '2023-09-15 14:00:00'),
-    ('Holiday Closure', 'Our offices will be closed during the holidays.', '2023-12-24 18:00:00', '2024-01-02 08:00:00', '2023-12-24 18:00:00', '2023-12-24 18:00:00'),
-    ('Service Disruption', 'Anticipated service disruption due to system upgrades.', '2023-09-18 12:00:00', '2023-09-19 12:00:00', '2023-09-18 12:00:00', '2023-09-18 12:00:00');
-
--- Insert sample data into the contact_messages table
-INSERT INTO contact_messages (contact_name, contact_email, subject, message, create_dt)
-VALUES
-    ('John Doe', 'john.doe@example.com', 'Inquiry', 'Hello, I have a question about your services.', '2023-09-10 09:00:00'),
-    ('Jane Smith', 'jane.smith@example.com', 'Feedback', 'I wanted to provide feedback on your website. It is great!', '2023-09-10 10:30:00'),
-    ('Michael Johnson', 'michael.johnson@example.com', 'Support Request', 'I need assistance with my account.', '2023-09-10 12:15:00'),
-    ('Susan Williams', 'susan.williams@example.com', 'Complaint', 'I am unhappy with your product. It did not meet my expectations.', '2023-09-10 14:45:00'),
-    ('David Miller', 'david.miller@example.com', 'Question', 'Can you provide more information about your pricing plans?', '2023-09-10 16:20:00');
-
+    (2500, -500, 1, 1, '2023-09-09 10:00:00.000000', 1, '2023-09-09 10:00:00.000000', 'Withdrawal', 'Debit'),
+    -- Transaction 2 is related to Account with ID 2 and Customer with ID 2
+    (900, 100, 2, 2, '2023-09-09 11:00:00.000000', 2, '2023-09-09 11:00:00.000000', 'Deposit', 'Credit');

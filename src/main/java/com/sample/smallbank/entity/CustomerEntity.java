@@ -3,33 +3,24 @@ package com.sample.smallbank.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import java.util.Date;
+
 import java.util.List;
+
 @Getter
 @Setter
 @Entity(name = "customers")
-public class CustomerEntity {
+public class CustomerEntity extends AbstractModificationAttributesEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "customer_id")
+    @Column(name = "customer_id", nullable = false)
     private Long customerId;
 
-    @Column(length = 50, nullable = false, unique = true)
+    @Column(name = "email", unique = true, nullable = false)
     private String email;
 
-    @Column(length = 100, nullable = false)
-    private String name;
-
-    @Column(length = 20, nullable = false)
-    private String mobileNumber;
-
-    @Temporal(TemporalType.DATE)
-    @Column(name = "created_date")
-    private Date createdDate;
-
-    @Column(nullable = false)
-    private String pwd;
+    @Column(name = "password", nullable = false)
+    private String password;
 
     @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinTable(
@@ -39,13 +30,7 @@ public class CustomerEntity {
     )
     private List<RoleEntity> roles;
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    private List<AccountEntity> accounts;
-
-    @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private LoanEntity loan;
-
-    @OneToMany(mappedBy = "customer")
-    private List<CardEntity> cards;
+    @Column(name = "mobile_phone")
+    private String mobilePhone;
 
 }
