@@ -14,10 +14,10 @@ public class ContactEntity extends AbstractModificationAttributesEntity {
     private Long contactId;
 
     @Column(name = "name", nullable = false)
-    private String name;
+    private String contactName;
 
     @Column(name = "email", nullable = false)
-    private String email;
+    private String contactEmail;
 
     @Column(name = "subject", nullable = false)
     private String subject;
