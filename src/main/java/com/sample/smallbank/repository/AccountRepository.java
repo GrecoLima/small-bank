@@ -4,9 +4,11 @@ import com.sample.smallbank.entity.AccountEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository
-public interface AccountEntityRepository extends JpaRepository<AccountEntity, Long> {
+import java.util.List;
 
-    AccountEntity findByCustomer_CustomerId(Long customerId);
+@Repository
+public interface AccountRepository extends JpaRepository<AccountEntity, Long> {
+
+    List<AccountEntity> findByCustomer_CustomerId(Long customerId);
 
 }

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface AccountTransactionEntityRepository extends JpaRepository<AccountTransactionEntity, Long> {
+public interface AccountTransactionRepository extends JpaRepository<AccountTransactionEntity, Long> {
 
     List<AccountTransactionEntity> findByCustomer_CustomerIdOrderByTransactionDtDesc(Long customerId);
 

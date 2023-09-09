@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Getter
@@ -24,13 +23,13 @@ public class AccountTransactionEntity {
     @OneToOne
     private CustomerEntity customer;
 
-    @Column(name="transaction_dt")
+    @Column(name = "transaction_dt")
     private LocalDateTime transactionDt;
 
     @Column(name = "transaction_summary")
     private String transactionSummary;
 
-    @Column(name="transaction_type")
+    @Column(name = "transaction_type")
     private String transactionType;
 
     @Column(name = "transaction_amt")

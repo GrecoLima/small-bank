@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface NoticeEntityRepository extends JpaRepository<NoticeEntity, Long> {
+public interface NoticeRepository extends JpaRepository<NoticeEntity, Long> {
 
     @Query(value = "SELECT n from notice_details n where CURDATE() BETWEEN n.noticBegDt AND n.noticEndDt")
     List<NoticeEntity> findAllActiveNotices();
