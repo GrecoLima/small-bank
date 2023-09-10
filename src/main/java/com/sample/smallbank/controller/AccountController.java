@@ -21,8 +21,8 @@ public class AccountController {
     }
 
     @GetMapping("/myAccount")
-    public ResponseEntity<List<AccountEntity>> getAccountDetails(@RequestParam Long customerId) {
-        List<AccountEntity> accounts = accountService.getAccountDetails(customerId);
+    public ResponseEntity<List<AccountEntity>> getAccountDetails(@RequestParam Long id) {
+        List<AccountEntity> accounts = accountService.getAccountDetails(id);
         return ResponseEntity.ok(accounts);
     }
 

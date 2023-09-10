@@ -21,8 +21,8 @@ public class BalanceController {
     }
 
     @GetMapping("/myBalance")
-    public ResponseEntity<List<AccountTransactionEntity>> getBalanceDetails(@RequestParam Long customerId) {
-        List<AccountTransactionEntity> transactions = accountTransactionService.getBalanceDetails(customerId);
+    public ResponseEntity<List<AccountTransactionEntity>> getBalanceDetails(@RequestParam Long id) {
+        List<AccountTransactionEntity> transactions = accountTransactionService.getBalanceDetails(id);
         return ResponseEntity.ok(transactions);
     }
 }

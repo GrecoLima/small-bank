@@ -66,6 +66,7 @@ public class CustomerService {
         customerEntity.setPassword(passwordEncoder.encode(registrationDto.getPassword()));
         customerEntity.setRoles(roleEntities);
         customerEntity.setCreatedDate(LocalDate.now());
+        customerEntity.setActive(true);
 
         // Save the user in the database
         customerRepository.save(customerEntity);

@@ -14,6 +14,7 @@ public class CustomerEntity extends AbstractModificationAttributesEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "customer_id", nullable = false)
+    //@JsonProperty(value = "id")
     private Long customerId;
 
     @Column(name = "email", unique = true, nullable = false)

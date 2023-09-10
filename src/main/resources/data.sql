@@ -22,13 +22,13 @@ VALUES (1, '2023-09-10', '2023-09-10', 1, 'Admin', 'alice@example.com', 'Need as
 -- Customer with ID 1
 INSERT INTO customers (active, created_date, updated_date, customer_id, created_by, email, mobile_phone, password,
                        updated_by)
-VALUES (1, '2023-09-10', '2023-09-10', 1, 'Admin', 'alice@example.com', '1112223333', 'hashed_password', 'Admin'),
+VALUES (1, '2023-09-10', '2023-09-10', 1, 'Admin', 'alice@example.com', '1112223333', '$2a$10$GznGIotoTSVj8lrKbrh7ROyT6o8A4taJ1t28nJHcN.E9nihsY9mpG', 'Admin'),
        -- Customer with ID 2
-       (1, '2023-09-10', '2023-09-10', 2, 'Admin', 'bob@example.com', '4445556666', 'hashed_password', 'Admin'),
+       (1, '2023-09-10', '2023-09-10', 2, 'Admin', 'bob@example.com', '4445556666', '$2a$10$GznGIotoTSVj8lrKbrh7ROyT6o8A4taJ1t28nJHcN.E9nihsY9mpG', 'Admin'),
        -- Customer with ID 3
-       (1, '2023-09-10', '2023-09-10', 3, 'Admin', 'carol@example.com', '7778889999', 'hashed_password', 'Admin'),
+       (1, '2023-09-10', '2023-09-10', 3, 'Admin', 'carol@example.com', '7778889999', '$2a$10$GznGIotoTSVj8lrKbrh7ROyT6o8A4taJ1t28nJHcN.E9nihsY9mpG', 'Admin'),
        -- Customer with ID 4
-       (1, '2023-09-10', '2023-09-10', 4, 'Admin', 'dave@example.com', '1234567890', 'hashed_password', 'Admin');
+       (1, '2023-09-10', '2023-09-10', 4, 'Admin', 'dave@example.com', '1234567890', '$2a$10$GznGIotoTSVj8lrKbrh7ROyT6o8A4taJ1t28nJHcN.E9nihsY9mpG', 'Admin');
 
 -- Insert additional data into the 'notice_details' table
 -- Notice 1
