@@ -5,6 +5,7 @@ import com.sample.smallbank.dto.UserRegistrationDto;
 import com.sample.smallbank.entity.CustomerEntity;
 import com.sample.smallbank.entity.RoleEntity;
 import com.sample.smallbank.repository.CustomerRepository;
+import com.sample.smallbank.repository.RoleRepository;
 import com.sample.smallbank.util.PhoneNumberFormatter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

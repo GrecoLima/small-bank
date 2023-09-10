@@ -1,4 +1,4 @@
-package com.sample.smallbank.service;
+package com.sample.smallbank.repository;
 
 import com.sample.smallbank.entity.RoleEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

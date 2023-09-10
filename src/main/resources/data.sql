@@ -2,16 +2,20 @@
 -- This message is related to customer with ID 1
 INSERT INTO contact_messages (active, created_date, updated_date, contact_id, created_by, email, message, name, subject,
                               updated_by)
-VALUES (1, '2023-09-10', '2023-09-10', 1, 'Admin', 'alice@example.com', 'Need assistance with my account.', 'Alice Johnson',
+VALUES (1, '2023-09-10', '2023-09-10', 1, 'Admin', 'alice@example.com', 'Need assistance with my account.',
+        'Alice Johnson',
         'Support', 'Admin'),
        -- This message is related to customer with ID 2
-       (1, '2023-09-10', '2023-09-10', 2, 'Admin', 'bob@example.com', 'Inquiry about my recent transactions.', 'Bob Williams',
+       (1, '2023-09-10', '2023-09-10', 2, 'Admin', 'bob@example.com', 'Inquiry about my recent transactions.',
+        'Bob Williams',
         'Help', 'Admin'),
        -- This message is related to customer with ID 3
-       (1, '2023-09-10', '2023-09-10', 3, 'Admin', 'carol@example.com', 'Issue with my card, urgent assistance needed.', 'Carol Davis',
+       (1, '2023-09-10', '2023-09-10', 3, 'Admin', 'carol@example.com', 'Issue with my card, urgent assistance needed.',
+        'Carol Davis',
         'Urgent', 'Admin'),
        -- This message is related to customer with ID 4
-       (1, '2023-09-10', '2023-09-10', 4, 'Admin', 'dave@example.com', 'Requesting information on loan options.', 'Dave Wilson',
+       (1, '2023-09-10', '2023-09-10', 4, 'Admin', 'dave@example.com', 'Requesting information on loan options.',
+        'Dave Wilson',
         'Loan Inquiry', 'Admin');
 
 -- Insert additional data into the 'customers' table

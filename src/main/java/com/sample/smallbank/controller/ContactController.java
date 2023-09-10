@@ -1,30 +1,23 @@
 package com.sample.smallbank.controller;
 
 import com.sample.smallbank.entity.ContactEntity;
-import com.sample.smallbank.repository.ContactRepository;
+import com.sample.smallbank.service.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDate;
-import java.util.Random;
-
 @RestController
 public class ContactController {
+    private final ContactService contactService;
+
     @Autowired
-    private ContactRepository contactRepository;
+    public ContactController(ContactService contactService) {
+        this.contactService = contactService;
+    }
 
     @PostMapping("/contact")
     public ContactEntity saveContactInquiryDetails(@RequestBody ContactEntity contact) {
-        contact.setContactId(getServiceReqNumber());
-        contact.setCreatedDate(LocalDate.now());
-        return contactRepository.save(contact);
-    }
-
-    public Long getServiceReqNumber() {
-        Random random = new Random();
-        return random.nextLong(999999999 - 9999) + 9999;
+        return contactService.saveContact(contact);
     }
 }
