@@ -3,12 +3,9 @@ package com.sample.smallbank.service;
 import com.sample.smallbank.dto.AccountDTO;
 import com.sample.smallbank.entity.AccountEntity;
 import com.sample.smallbank.mapper.AccountMapper;
-import com.sample.smallbank.mapper.CustomerMapper;
 import com.sample.smallbank.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class AccountService {
@@ -17,7 +14,7 @@ public class AccountService {
     private final AccountMapper accountMapper;
 
     @Autowired
-    public AccountService(AccountRepository accountRepository,AccountMapper accountMapper) {
+    public AccountService(AccountRepository accountRepository, AccountMapper accountMapper) {
         this.accountRepository = accountRepository;
         this.accountMapper = accountMapper;
     }
