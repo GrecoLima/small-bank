@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class RoleDto {
+public class RoleDTO {
     @JsonProperty("roleName")
     String roleName;
 

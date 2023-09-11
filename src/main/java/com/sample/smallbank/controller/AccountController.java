@@ -1,5 +1,6 @@
 package com.sample.smallbank.controller;
 
+import com.sample.smallbank.dto.AccountDTO;
 import com.sample.smallbank.entity.AccountEntity;
 import com.sample.smallbank.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +22,9 @@ public class AccountController {
     }
 
     @GetMapping("/myAccount")
-    public ResponseEntity<List<AccountEntity>> getAccountDetails(@RequestParam Long id) {
-        List<AccountEntity> accounts = accountService.getAccountDetails(id);
-        return ResponseEntity.ok(accounts);
+    public ResponseEntity<AccountDTO> getAccountDetails(@RequestParam Long id) {
+        AccountDTO accountDTO = accountService.getAccountDetails(id);
+        return ResponseEntity.ok(accountDTO);
     }
 
 }

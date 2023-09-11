@@ -1,7 +1,7 @@
 package com.sample.smallbank.service;
 
-import com.sample.smallbank.dto.RoleDto;
-import com.sample.smallbank.dto.UserRegistrationDto;
+import com.sample.smallbank.dto.RoleDTO;
+import com.sample.smallbank.dto.UserRegistrationDTO;
 import com.sample.smallbank.entity.CustomerEntity;
 import com.sample.smallbank.entity.RoleEntity;
 import com.sample.smallbank.repository.CustomerRepository;
@@ -31,7 +31,7 @@ public class CustomerService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public ResponseEntity<String> registerUser(UserRegistrationDto registrationDto) {
+    public ResponseEntity<String> registerUser(UserRegistrationDTO registrationDto) {
 
         // Check if a user with the same email already exists
         if (customerRepository.findCustomerByEmail(registrationDto.getEmail()) != null) {
@@ -42,7 +42,7 @@ public class CustomerService {
         List<RoleEntity> roleEntities = new ArrayList<>();
 
         // Iterate through the roles from the request
-        for (RoleDto roleDto : registrationDto.getRoles()) {
+        for (RoleDTO roleDto : registrationDto.getRoles()) {
             // Check if the role already exists in the database
             RoleEntity existingRole = roleRepository.findByRoleName(roleDto.getRoleName().toUpperCase());
             if (existingRole != null) {
@@ -61,7 +61,7 @@ public class CustomerService {
         CustomerEntity customerEntity = new CustomerEntity();
         customerEntity.setEmail(registrationDto.getName());
         String formattedPhoneNumber = PhoneNumberFormatter.formatPhoneNumber(registrationDto.getMobileNumber());
-        customerEntity.setMobilePhone(formattedPhoneNumber);
+        customerEntity.setMobileNumber(formattedPhoneNumber);
         customerEntity.setEmail(registrationDto.getEmail());
         customerEntity.setPassword(passwordEncoder.encode(registrationDto.getPassword()));
         customerEntity.setRoles(roleEntities);

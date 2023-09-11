@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class UserRegistrationDto {
+public class UserRegistrationDTO {
 
     @JsonProperty("name")
     private String name;
@@ -21,5 +21,5 @@ public class UserRegistrationDto {
     private String password;
 
     @JsonProperty("roles")
-    private List<RoleDto> roles;
+    private List<RoleDTO> roles;
 }

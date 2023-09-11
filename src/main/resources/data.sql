@@ -20,15 +20,14 @@ VALUES (1, '2023-09-10', '2023-09-10', 1, 'Admin', 'alice@example.com', 'Need as
 
 -- Insert additional data into the 'customers' table
 -- Customer with ID 1
-INSERT INTO customers (active, created_date, updated_date, customer_id, created_by, email, mobile_phone, password,
-                       updated_by)
-VALUES (1, '2023-09-10', '2023-09-10', 1, 'Admin', 'alice@example.com', '1112223333', '$2a$10$GznGIotoTSVj8lrKbrh7ROyT6o8A4taJ1t28nJHcN.E9nihsY9mpG', 'Admin'),
+INSERT INTO customers (customer_id, created_by, updated_by, created_date, updated_date, active, name, email, password, mobile_number)
+VALUES (1, 'Admin', 'Admin', '2023-09-10', '2023-09-10', 1, 'Alice Johnson', 'alice@example.com', '$2a$10$GznGIotoTSVj8lrKbrh7ROyT6o8A4taJ1t28nJHcN.E9nihsY9mpG', '1112223333'),
        -- Customer with ID 2
-       (1, '2023-09-10', '2023-09-10', 2, 'Admin', 'bob@example.com', '4445556666', '$2a$10$GznGIotoTSVj8lrKbrh7ROyT6o8A4taJ1t28nJHcN.E9nihsY9mpG', 'Admin'),
+       (2, 'Admin', 'Admin', '2023-09-10', '2023-09-10', 1, 'Bob Williams', 'bob@example.com', '$2a$10$GznGIotoTSVj8lrKbrh7ROyT6o8A4taJ1t28nJHcN.E9nihsY9mpG', '4445556666'),
        -- Customer with ID 3
-       (1, '2023-09-10', '2023-09-10', 3, 'Admin', 'carol@example.com', '7778889999', '$2a$10$GznGIotoTSVj8lrKbrh7ROyT6o8A4taJ1t28nJHcN.E9nihsY9mpG', 'Admin'),
+       (3, 'Admin', 'Admin', '2023-09-10', '2023-09-10', 1, 'Carol Davis', 'carol@example.com', '$2a$10$GznGIotoTSVj8lrKbrh7ROyT6o8A4taJ1t28nJHcN.E9nihsY9mpG', '7778889999'),
        -- Customer with ID 4
-       (1, '2023-09-10', '2023-09-10', 4, 'Admin', 'dave@example.com', '1234567890', '$2a$10$GznGIotoTSVj8lrKbrh7ROyT6o8A4taJ1t28nJHcN.E9nihsY9mpG', 'Admin');
+       (4, 'Admin', 'Admin', '2023-09-10', '2023-09-10', 1, 'Dave Wilson', 'dave@example.com', '$2a$10$GznGIotoTSVj8lrKbrh7ROyT6o8A4taJ1t28nJHcN.E9nihsY9mpG', '1234567890');
 
 -- Insert additional data into the 'notice_details' table
 -- Notice 1
@@ -58,15 +57,15 @@ VALUES (1, '2023-09-10', '2023-09-10', 5, 'Admin', 'MANAGER', 'Admin'),
 
 -- Insert additional data into the 'accounts' table
 -- Account 1 belongs to Customer with ID 1
-INSERT INTO accounts (active, created_date, updated_date, account_id, customer_id, account_type, branch_address,
+INSERT INTO accounts (active, created_date, updated_date, account_id, customer_id, account_type, account_number, branch_address,
                       created_by, updated_by)
-VALUES (1, '2023-09-10', '2023-09-10', 1, 1, 'Savings', '789 Oak St', 'Admin', 'Admin'),
+VALUES (1, '2023-09-10', '2023-09-10', 1, 1, 'Savings', '12345678', '789 Oak St', 'Admin', 'Admin'),
        -- Account 2 belongs to Customer with ID 2
-       (1, '2023-09-10', '2023-09-10', 2, 2, 'Checking', '101 Maple St', 'Admin', 'Admin'),
+       (1, '2023-09-10', '2023-09-10', 2, 2, 'Checking', '23456789', '101 Maple St', 'Admin', 'Admin'),
        -- Account 3 belongs to Customer with ID 3
-       (1, '2023-09-10', '2023-09-10', 3, 3, 'Savings', '222 Pine St', 'Admin', 'Admin'),
+       (1, '2023-09-10', '2023-09-10', 3, 3, 'Savings', '34567890', '222 Pine St', 'Admin', 'Admin'),
        -- Account 4 belongs to Customer with ID 4
-       (1, '2023-09-10', '2023-09-10', 4, 4, 'Checking', '333 Cedar St', 'Admin', 'Admin');
+       (1, '2023-09-10', '2023-09-10', 4, 4, 'Checking', '45678901', '333 Cedar St', 'Admin', 'Admin');
 
 -- Insert additional data into the 'cards' table
 -- Card 1 belongs to Customer with ID 1 and Account with ID 1

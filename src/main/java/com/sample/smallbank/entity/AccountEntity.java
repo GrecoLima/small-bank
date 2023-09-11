@@ -21,6 +21,9 @@ public class AccountEntity extends AbstractModificationAttributesEntity {
     @Column(name = "account_type", nullable = false)
     private String accountType;
 
+    @Column(name = "account_number", nullable = false,unique = true)
+    private String accountNumber;
+
     @Column(name = "branch_address", nullable = false)
     private String branchAddress;
 }

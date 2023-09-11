@@ -9,6 +9,6 @@ import java.util.List;
 @Repository
 public interface AccountRepository extends JpaRepository<AccountEntity, Long> {
 
-    List<AccountEntity> findByCustomer_CustomerId(Long customerId);
+    AccountEntity findByCustomer_CustomerId(Long customerId);
 
 }

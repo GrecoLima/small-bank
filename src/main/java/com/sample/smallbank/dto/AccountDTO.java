@@ -1,12 +1,15 @@
 package com.sample.smallbank.dto;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class AccountDTO {
 
     private Long accountId;
-    private Long customerId;
+    private CustomerDTO user;
+    private String accountNumber;
     private String accountType;
     private String branchAddress;
 }

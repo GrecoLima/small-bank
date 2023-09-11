@@ -1,6 +1,6 @@
 package com.sample.smallbank.controller;
 
-import com.sample.smallbank.dto.UserRegistrationDto;
+import com.sample.smallbank.dto.UserRegistrationDTO;
 import com.sample.smallbank.entity.CustomerEntity;
 import com.sample.smallbank.service.CustomerService;
 import com.sample.smallbank.service.LoginService;
@@ -22,7 +22,7 @@ public class LoginController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<String> registerUser(@RequestBody UserRegistrationDto registrationDto) {
+    public ResponseEntity<String> registerUser(@RequestBody UserRegistrationDTO registrationDto) {
         return customerService.registerUser(registrationDto);
     }
 

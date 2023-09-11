@@ -17,6 +17,9 @@ public class CustomerEntity extends AbstractModificationAttributesEntity {
     //@JsonProperty(value = "id")
     private Long customerId;
 
+    @Column(name = "name", nullable = false)
+    private String name;
+
     @Column(name = "email", unique = true, nullable = false)
     private String email;
 
@@ -31,7 +34,7 @@ public class CustomerEntity extends AbstractModificationAttributesEntity {
     )
     private List<RoleEntity> roles;
 
-    @Column(name = "mobile_phone")
-    private String mobilePhone;
+    @Column(name = "mobile_number")
+    private String mobileNumber;
 
 }
