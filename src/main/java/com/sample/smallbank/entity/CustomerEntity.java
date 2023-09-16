@@ -42,7 +42,7 @@ public class CustomerEntity extends AbstractModificationAttributesEntity {
     private String mobileNumber;
 
     @JsonIgnore
-    @OneToMany(mappedBy="customer",fetch=FetchType.EAGER)
+    @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER)
     private Set<AuthorityEntity> authorities;
 
 }

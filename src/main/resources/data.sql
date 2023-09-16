@@ -52,15 +52,15 @@ VALUES ('2023-09-10 10:00:00.000000', '2023-01-01 08:30:00.000000', '2024-01-01 
 -- Insert additional data into the 'roles' table
 -- Manager role
 INSERT INTO roles (active, created_date, updated_date, created_by, role_name, updated_by)
-VALUES (1, '2023-09-10', '2023-09-10','Admin', 'ROLE_MANAGER', 'Admin'),
+VALUES (1, '2023-09-10', '2023-09-10', 'Admin', 'ROLE_MANAGER', 'Admin'),
        -- Support role
-       (1, '2023-09-10', '2023-09-10','Admin', 'ROLE_SUPPORT', 'Admin'),
+       (1, '2023-09-10', '2023-09-10', 'Admin', 'ROLE_SUPPORT', 'Admin'),
        -- Analyst role
-       (1, '2023-09-10', '2023-09-10','Admin', 'ROLE_ANALYST', 'Admin'),
+       (1, '2023-09-10', '2023-09-10', 'Admin', 'ROLE_ANALYST', 'Admin'),
        -- Developer role
-       (1, '2023-09-10', '2023-09-10','Admin', 'ROLE_DEVELOPER', 'Admin'),
-        -- User role
-       (1, '2023-09-10', '2023-09-10','Admin', 'ROLE_USER', 'Admin');
+       (1, '2023-09-10', '2023-09-10', 'Admin', 'ROLE_DEVELOPER', 'Admin'),
+       -- User role
+       (1, '2023-09-10', '2023-09-10', 'Admin', 'ROLE_USER', 'Admin');
 
 -- Insert additional data into the 'accounts' table
 -- Account 1 belongs to Customer with ID 1
