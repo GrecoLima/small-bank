@@ -1,6 +1,7 @@
 package com.sample.smallbank.config;
 
 import com.sample.smallbank.filter.CsrfCookieFilter;
+import com.sample.smallbank.filter.RequestValidationBeforeFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -45,6 +46,7 @@ public class SecurityConfig {
                         .ignoringRequestMatchers("/register", "/contact")
                         .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()))
                 .addFilterAfter(new CsrfCookieFilter(), BasicAuthenticationFilter.class)
+                .addFilterBefore(new RequestValidationBeforeFilter(),BasicAuthenticationFilter.class)
                 .cors(withDefaults());
 
         http.formLogin(withDefaults());
