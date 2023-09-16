@@ -1,5 +1,7 @@
 package com.sample.smallbank.config;
 
+import com.sample.smallbank.filter.AuthoritiesLoggingAfterFilter;
+import com.sample.smallbank.filter.AuthoritiesLoggingAtFilter;
 import com.sample.smallbank.filter.CsrfCookieFilter;
 import com.sample.smallbank.filter.RequestValidationBeforeFilter;
 import org.springframework.context.annotation.Bean;
@@ -46,7 +48,9 @@ public class SecurityConfig {
                         .ignoringRequestMatchers("/register", "/contact")
                         .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()))
                 .addFilterAfter(new CsrfCookieFilter(), BasicAuthenticationFilter.class)
-                .addFilterBefore(new RequestValidationBeforeFilter(),BasicAuthenticationFilter.class)
+                .addFilterBefore(new RequestValidationBeforeFilter(), BasicAuthenticationFilter.class)
+                .addFilterAt(new AuthoritiesLoggingAtFilter(), BasicAuthenticationFilter.class)
+                .addFilterAfter(new AuthoritiesLoggingAfterFilter(), BasicAuthenticationFilter.class)
                 .cors(withDefaults());
 
         http.formLogin(withDefaults());
