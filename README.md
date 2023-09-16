@@ -51,6 +51,8 @@ functionalities.
 
 - **Database**: Utilizing a relational database (e.g., MySQL, PostgreSQL) for data storage.
 
+- **Small-Bank-UI Repository**: The user interface for Small Bank can be found in the [Small-Bank-UI repository](https://github.com/GrecoLima/small-bank-ui).
+
 ### Who Should Participate?
 
 - Students and learners interested in Java and Spring framework.
