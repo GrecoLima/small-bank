@@ -11,6 +11,8 @@ import java.util.Random;
 public class ContactService {
     private final ContactRepository contactRepository;
 
+    private final Random random = new Random();
+
     public ContactService(ContactRepository contactRepository) {
         this.contactRepository = contactRepository;
     }
@@ -23,7 +25,6 @@ public class ContactService {
     }
 
     private Long getServiceReqNumber() {
-        Random random = new Random();
         return random.nextLong(999999999 - 9999) + 9999;
     }
 }

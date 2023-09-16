@@ -51,14 +51,16 @@ VALUES ('2023-09-10 10:00:00.000000', '2023-01-01 08:30:00.000000', '2024-01-01 
 
 -- Insert additional data into the 'roles' table
 -- Manager role
-INSERT INTO roles (active, created_date, updated_date, role_id, created_by, role_name, updated_by)
-VALUES (1, '2023-09-10', '2023-09-10', 5, 'Admin', 'MANAGER', 'Admin'),
+INSERT INTO roles (active, created_date, updated_date, created_by, role_name, updated_by)
+VALUES (1, '2023-09-10', '2023-09-10','Admin', 'ROLE_MANAGER', 'Admin'),
        -- Support role
-       (1, '2023-09-10', '2023-09-10', 6, 'Admin', 'SUPPORT', 'Admin'),
+       (1, '2023-09-10', '2023-09-10','Admin', 'ROLE_SUPPORT', 'Admin'),
        -- Analyst role
-       (1, '2023-09-10', '2023-09-10', 7, 'Admin', 'ANALYST', 'Admin'),
+       (1, '2023-09-10', '2023-09-10','Admin', 'ROLE_ANALYST', 'Admin'),
        -- Developer role
-       (1, '2023-09-10', '2023-09-10', 8, 'Admin', 'DEVELOPER', 'Admin');
+       (1, '2023-09-10', '2023-09-10','Admin', 'ROLE_DEVELOPER', 'Admin'),
+        -- User role
+       (1, '2023-09-10', '2023-09-10','Admin', 'ROLE_USER', 'Admin');
 
 -- Insert additional data into the 'accounts' table
 -- Account 1 belongs to Customer with ID 1
@@ -88,13 +90,13 @@ VALUES (1, 200.00, 2800.00, '2023-09-10', 3000.00, '2023-09-10', 1, 1, '11112222
 -- Insert additional data into the 'customer_roles' table
 -- Customer with ID 1 has Manager role (ID 1)
 INSERT INTO customer_roles (customer_id, role_id)
-VALUES (1, 5),
+VALUES (1, 1),
        -- Customer with ID 2 has Support role (ID 2)
-       (2, 6),
+       (2, 5),
        -- Customer with ID 3 has Analyst role (ID 3)
-       (3, 7),
+       (3, 5),
        -- Customer with ID 4 has Developer role (ID 4)
-       (4, 8);
+       (4, 5);
 
 -- Insert additional data into the 'loans' table
 -- Loan 1 belongs to Customer with ID 1
@@ -119,3 +121,12 @@ VALUES (2800, -200, 1, 1, '2023-09-10 10:30:00.000000', 1, '2023-09-10 10:30:00.
        (700, -300, 3, 3, '2023-09-10 12:30:00.000000', 3, '2023-09-10 12:30:00.000000', 'Online Payment', 'Debit'),
        -- Transaction 4 is related to Account with ID 4 and Customer with ID 4
        (925, -75, 4, 4, '2023-09-10 13:30:00.000000', 4, '2023-09-10 13:30:00.000000', 'Cash Deposit', 'Credit');
+
+-- Insert data into the 'authorities' table
+-- Authority with ID 1 (FULL_ACCESS)
+INSERT INTO authorities (name, customer_id)
+VALUES ('VIEWACCOUNT', 1),
+       ('VIEWCARDS', 1),
+       ('VIEWLOAN', 1),
+       ('VIEWBALANCE', 1);
+

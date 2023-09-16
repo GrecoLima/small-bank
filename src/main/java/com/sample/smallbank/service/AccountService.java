@@ -21,8 +21,7 @@ public class AccountService {
 
     public AccountDTO getAccountDetails(Long customerId) {
         AccountEntity account = accountRepository.findByCustomer_CustomerId(customerId);
-        AccountDTO accountDTO = accountMapper.entityToDto(account);
-        return accountDTO;
+        return accountMapper.entityToDto(account);
     }
 }
 

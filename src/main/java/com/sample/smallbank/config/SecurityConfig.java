@@ -34,7 +34,11 @@ public class SecurityConfig {
                         .requireExplicitSave(false))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.ALWAYS))
                 .authorizeHttpRequests(requests -> requests
-                        .requestMatchers("/myAccount", "/myBalance", "/myLoans", "/myCards", "/user").authenticated()
+                        .requestMatchers("/myAccount").hasAuthority("VIEWACCOUNT")
+                        .requestMatchers("/myBalance").hasAnyAuthority("VIEWBALANCE","VIEWACCOUNT")
+                        .requestMatchers("/myLoans").hasRole("MANAGER")
+                        .requestMatchers("/myCards").hasAuthority("VIEWCARDS")
+                        .requestMatchers("/user").authenticated()
                         .requestMatchers("/notices", "/contact", "/register").permitAll())
                 .csrf(csrf -> csrf
                         .csrfTokenRequestHandler(requestAttributeHandler)

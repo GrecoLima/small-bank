@@ -1,10 +1,13 @@
 package com.sample.smallbank.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -24,6 +27,7 @@ public class CustomerEntity extends AbstractModificationAttributesEntity {
     private String email;
 
     @Column(name = "password", nullable = false)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
     @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
@@ -36,5 +40,9 @@ public class CustomerEntity extends AbstractModificationAttributesEntity {
 
     @Column(name = "mobile_number")
     private String mobileNumber;
+
+    @JsonIgnore
+    @OneToMany(mappedBy="customer",fetch=FetchType.EAGER)
+    private Set<AuthorityEntity> authorities;
 
 }
